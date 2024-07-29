@@ -45,14 +45,27 @@ class _TransactionFormState extends State<TransactionForm> {
               decoration: InputDecoration(labelText: 'Valor (R\$)'),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                Text('Nenhuma data escolhida!'),
                 TextButton(
+                  child: Text(
+                    'Selecionar data',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  onPressed: () {},
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                ElevatedButton(
                   onPressed: _submitForm,
                   child: Text(
                     'Nova despesa',
                     style: TextStyle(
-                        backgroundColor: Colors.white, color: Colors.black),
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               ],

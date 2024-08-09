@@ -3,7 +3,7 @@ import 'package:expenses/components/transaction_form.dart';
 
 import 'package:flutter/material.dart';
 import './components/transaction_form.dart';
-import './components/transanction_list.dart';
+import 'components/transaction_list.dart';
 import 'models/transactions.dart';
 import 'dart:math';
 
@@ -63,6 +63,16 @@ class _HomePageState extends State<HomePage> {
     Navigator.of(context).pop();
   }
 
+  _deleteTransaction(String id) {
+    setState(() {
+      _transactions.removeWhere(
+        (tr) {
+          return tr.id == id;
+        },
+      );
+    });
+  }
+
   _openTransactionFormModal(BuildContext context) {
     showModalBottomSheet(
         context: context,
@@ -93,7 +103,7 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Chart(_recentTransactions),
-            TransanctionList(_transactions)
+            TransactionList(_transactions, _deleteTransaction),
           ],
         ),
       ),

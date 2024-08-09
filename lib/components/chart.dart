@@ -49,7 +49,7 @@ class Chart extends StatelessWidget {
             return Flexible(
               fit: FlexFit.tight,
               child: ChartBar(tr['day'].toString(), tr['value'] as double,
-                  tr['value'] / _weekValue),
+                  _weekValue == 0 ? 0 : (tr['value'] as double) / _weekValue),
             );
           }).toList(),
         ),
